@@ -44,7 +44,7 @@ public class AgendaRepositoryImpl implements AgendaRepository {
 
     @Override
     public List<Agenda> todos() {
-        return em.createQuery("SELECT a from Agenda").getResultList();
+        return em.createQuery("SELECT a from Agenda a").getResultList();
     }
     
 }

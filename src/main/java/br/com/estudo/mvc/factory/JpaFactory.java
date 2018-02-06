@@ -17,7 +17,7 @@ import javax.persistence.Persistence;
  *
  * @author eduardo
  */
-//@ApplicationScoped
+@ApplicationScoped
 public class JpaFactory {
     
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");

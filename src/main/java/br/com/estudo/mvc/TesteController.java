@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
 import javax.mvc.annotation.View;
+import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
@@ -23,13 +24,17 @@ public class TesteController {
     @Inject
     private Models models;
     
+    @Inject
+    private EntityManager em;
+    
     @GET
 //    @View("teste.jsp")
     public String teste() {
         
-        System.out.println("passei aqui2!");
+        System.out.println(em);
+        System.out.println("passei aqui2! ");
         models.put("mensagem", "ola estou aqui com thymeleaf 123");
-        return "ola";
+        return "ola.html";
     }
     
     
