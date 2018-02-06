@@ -6,6 +6,10 @@
 package br.com.estudo.mvc;
 
 //import java.net.MalformedURLException;
+
+import br.com.estudo.mvc.factory.JpaFactory;
+import javax.persistence.EntityManager;
+
 //import javax.servlet.ServletException;
 //import org.apache.catalina.LifecycleException;
 
@@ -16,7 +20,10 @@ package br.com.estudo.mvc;
 public class Boot {
 
     public static void main(String[] args)  {
-//        String contextPath = "/";
+        
+//        EntityManager em = new JpaFactory().create();
+//        System.out.println(em);
+////        String contextPath = "/";
 //        String appBase = ".";
 //        Tomcat tomcat = new Tomcat();
 //        tomcat.setPort(Integer.valueOf("8080"));
