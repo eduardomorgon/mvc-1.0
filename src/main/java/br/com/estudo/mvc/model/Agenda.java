@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.ws.rs.FormParam;
 
 /**
  *
@@ -20,8 +21,11 @@ public class Agenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @FormParam("id")
     private Integer id;
+    @FormParam("nome")
     private String nome;
+    @FormParam("telefone")
     private String telefone;
 
     public Agenda() {
