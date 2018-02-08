@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author eduardo
  */
-@ApplicationPath("")
+@ApplicationPath("mvc")
 public class App extends Application {
 
 //    @Override

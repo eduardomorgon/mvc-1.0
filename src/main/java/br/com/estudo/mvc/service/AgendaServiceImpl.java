@@ -41,4 +41,9 @@ public class AgendaServiceImpl implements AgendaService {
         return repository.todos();
     }
     
+    @Override
+    public Agenda buscar(Integer id) {
+        return repository.buscar(id);
+    }
+    
 }

@@ -12,9 +12,11 @@ import javax.inject.Inject;
 import javax.mvc.Models;
 import javax.mvc.annotation.Controller;
 import javax.ws.rs.BeanParam;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 /**
  *
@@ -51,6 +53,24 @@ public class AgendaController {
         
         service.salvar(agenda);
         return "redirect:agendas";
+    }
+    
+    @DELETE
+    @Path("{id}")
+    public String delete(@PathParam("id") Integer id) {
+        
+        Agenda agenda = service.buscar(id);
+        service.excluir(agenda);
+        return "redirect:agendas";
+    }
+    
+    @GET
+    @Path("{id}")
+    public String detalhes(@PathParam("id") Integer id) {
+        
+        Agenda agenda = service.buscar(id);
+        models.put("agenda", agenda);
+        return "agenda/form.html";
     }
     
 //    @GET

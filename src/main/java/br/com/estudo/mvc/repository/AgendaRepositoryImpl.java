@@ -46,5 +46,10 @@ public class AgendaRepositoryImpl implements AgendaRepository {
     public List<Agenda> todos() {
         return em.createQuery("SELECT a from Agenda a").getResultList();
     }
+
+    @Override
+    public Agenda buscar(Integer id) {
+        return em.find(Agenda.class, id);
+    }
     
 }

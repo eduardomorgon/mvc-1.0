@@ -18,5 +18,6 @@ public interface AgendaRepository {
     void editar(Agenda agenda);
     void excluir(Agenda agenda);
     List<Agenda> todos();
+    Agenda buscar(Integer id);
     
 }

@@ -18,5 +18,6 @@ public interface AgendaService {
     public void salvar(Agenda agenda);
     public void excluir(Agenda agenda);
     public List<Agenda> todos();
+    Agenda buscar(Integer id);
     
 }
