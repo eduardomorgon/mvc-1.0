@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Formulario Agenda</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/bootstrap/bootstrap.min.css}"/>
     </head>
     <body>
         <h1>Formulario Agenda</h1>
-        <form th:action="@{/mvc/agendas}" method="POST">
-            <input name="nome" id="nome"/>
-            <input name="telefone" id="nome"/>
-            <button type="submit">Salvar</button>
+        <form th:action="@{/mvc/agendas/{id}(id=${agenda.id})}" th:object="${agenda}" method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input name="nome" th:field="*{nome}" type="text" class="form-control" id="nome" aria-describedby="Nome" placeholder="Nome">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input name="telefone" th:field="*{telefone}" type="text" class="form-control" id="nome" aria-describedby="Telefone" placeholder="Telefone">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+            <div th:switch="${agenda.id == null}" class="form-group text-center">
+                <span th:case="true" >
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </span>
+                <span th:case="false" >
+                    <button th:type="submit" th:name="_method" 
+                            th:value="DELETE"  
+                            th:onclick="'return window.confirm(\'Deseja excluir '+ ${agenda.nome} +'?\');'"
+                            class="btn btn-danger float-right">Excluir</button>
+                </span>
+            </div>
         </form>
     </body>
+    <script type="text/javascript" th:src="@{/js/jquery/jquery-3.2.1.slim.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popper/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
 </html>
