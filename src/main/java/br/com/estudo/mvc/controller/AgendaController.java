@@ -15,6 +15,7 @@ import javax.ws.rs.BeanParam;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
@@ -45,6 +46,7 @@ public class AgendaController {
     @Path("form")
     public String form() {
 
+        models.put("agenda", new Agenda());
         return "agenda/form.html";
     }
     
@@ -55,8 +57,15 @@ public class AgendaController {
         return "redirect:agendas";
     }
     
-    @DELETE
-    @Path("{id}")
+    @PUT
+    public String put(@BeanParam Agenda agenda) {
+        
+        service.editar(agenda);
+        return "redirect:agendas";
+    }
+    
+    @GET
+    @Path("delete/{id}")
     public String delete(@PathParam("id") Integer id) {
         
         Agenda agenda = service.buscar(id);
