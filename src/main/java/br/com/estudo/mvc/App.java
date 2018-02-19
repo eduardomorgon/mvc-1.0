@@ -14,6 +14,8 @@ import javax.ws.rs.core.Application;
  */
 @ApplicationPath("mvc")
 public class App extends Application {
+    
+//    https://abhirockzz.wordpress.com/2016/03/08/binding-strategies-for-jax-rs-filters-and-interceptors/
 
 //    @Override
 //    public Set<Class<?>> getClasses() {

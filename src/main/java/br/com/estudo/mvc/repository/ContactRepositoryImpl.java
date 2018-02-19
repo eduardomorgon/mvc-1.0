@@ -5,7 +5,7 @@
  */
 package br.com.estudo.mvc.repository;
 
-import br.com.estudo.mvc.model.Agenda;
+import br.com.estudo.mvc.model.Contact;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -16,40 +16,40 @@ import javax.persistence.EntityManager;
  * @author eduardo
  */
 @RequestScoped
-public class AgendaRepositoryImpl implements AgendaRepository {
+public class ContactRepositoryImpl implements ContactRepository {
     
     @Inject
     private EntityManager em;
 
     @Override
-    public void salvar(Agenda agenda) {
+    public void save(Contact contact) {
         em.getTransaction().begin();
-        em.persist(agenda);
+        em.persist(contact);
         em.getTransaction().commit();
     }
 
     @Override
-    public void editar(Agenda agenda) {
+    public void edit(Contact contact) {
         em.getTransaction().begin();
-        em.merge(agenda);
+        em.merge(contact);
         em.getTransaction().commit();
     }
 
     @Override
-    public void excluir(Agenda agenda) {
+    public void delete(Contact contact) {
         em.getTransaction().begin();
-        em.remove(agenda);
+        em.remove(contact);
         em.getTransaction().commit();
     }
 
     @Override
-    public List<Agenda> todos() {
-        return em.createQuery("SELECT a from Agenda a").getResultList();
+    public List<Contact> all() {
+        return em.createQuery("SELECT c from Contact c").getResultList();
     }
 
     @Override
-    public Agenda buscar(Integer id) {
-        return em.find(Agenda.class, id);
+    public Contact findOne(Integer id) {
+        return em.find(Contact.class, id);
     }
     
 }

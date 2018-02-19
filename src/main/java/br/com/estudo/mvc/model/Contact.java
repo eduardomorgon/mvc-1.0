@@ -17,25 +17,25 @@ import javax.ws.rs.FormParam;
  */
 
 @Entity
-public class Agenda {
+public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @FormParam("id")
     private Integer id;
-    @FormParam("nome")
-    private String nome;
-    @FormParam("telefone")
-    private String telefone;
+    @FormParam("name")
+    private String name;
+    @FormParam("phone")
+    private String phone;
 
-    public Agenda() {
+    public Contact() {
     }
 
-    public Agenda(String nome, String telefone) {
-        this.nome = nome;
-        this.telefone = telefone;
+    public Contact(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
     }
-
+    
     public Integer getId() {
         return id;
     }
@@ -44,21 +44,22 @@ public class Agenda {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+
     
     
 }

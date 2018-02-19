@@ -5,19 +5,18 @@
  */
 package br.com.estudo.mvc.service;
 
-import br.com.estudo.mvc.model.Agenda;
+import br.com.estudo.mvc.model.Contact;
 import java.util.List;
 
 /**
  *
  * @author eduardo
  */
-public interface AgendaService {
+public interface ContactService {
     
-    public void editar(Agenda agenda);
-    public void salvar(Agenda agenda);
-    public void excluir(Agenda agenda);
-    public List<Agenda> todos();
-    Agenda buscar(Integer id);
+    public void save(Contact contact);
+    public void delete(Contact contact);
+    public List<Contact> all();
+    Contact findOne(Integer id);
     
 }
